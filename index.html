@@ -1,62 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="style.css" rel="stylesheet">
-<title>WorkMate</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>WorkMate</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>WorkMate</h1>
+      <div class="toggle-wrapper">
+        <label class="switch-label"
+          >Dark Mode
+          <input
+            type="checkbox"
+            id="darkModeToggle"
+            aria-label="Toggle dark mode"
+            onchange="toggleDarkMode()"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
 
+      <div class="toggle-wrapper">
+        <label class="switch-label"
+          >Hide completed action items
+          <input
+            type="checkbox"
+            id="hideCompletedToggle"
+            aria-label="Toggle hide completed"
+            onchange="renderDashboard()"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
 
-</head>
-<body >
-<main class="container">
-<h1>WorkMate</h1>
-<div class="toggle-wrapper">
-<label class="switch-label">Dark Mode
-<input type="checkbox" id="darkModeToggle" aria-label="Toggle dark mode" onchange="toggleDarkMode()" />
-<span class="slider"></span>
-</label>
-</div>
+      <h2>Dashboard</h2>
+      <div id="dashboard"></div>
+      <form onsubmit="addPerson(); return false">
+        <h2>Add Person</h2>
+        <label>Name: <input type="text" id="personName" /></label>
+        <label>Notes: <input type="text" id="personNotes" /></label>
+        <button type="submit">Add Person</button>
+        <div id="personMessage" class="form-message"></div>
+      </form>
 
-<div class="toggle-wrapper">
-<label class="switch-label">Hide completed action items
-<input type="checkbox" id="hideCompletedToggle" aria-label="Toggle hide completed" onchange="renderDashboard()" />
-<span class="slider"></span>
-</label>
-</div>
+      <form onsubmit="addMeeting(); return false">
+        <h2>Add Meeting</h2>
+        <label>Title: <input type="text" id="meetingTitle" /></label>
+        <label>Date: <input type="date" id="meetingDate" /></label>
+        <button type="submit">Add Meeting</button>
+        <div id="meetingMessage" class="form-message"></div>
+      </form>
 
-<h2>Dashboard</h2>
-<div id="dashboard"></div>
-<form onsubmit="addPerson(); return false">
-<h2>Add Person</h2>
-<label>Name: <input type="text" id="personName" /></label>
-<label>Notes: <input type="text" id="personNotes" /></label>
-<button type="submit">Add Person</button>
-<div id="personMessage" class="form-message"></div>
-</form>
-
-<form onsubmit="addMeeting(); return false">
-<h2>Add Meeting</h2>
-<label>Title: <input type="text" id="meetingTitle" /></label>
-<label>Date: <input type="date" id="meetingDate" /></label>
-<button type="submit">Add Meeting</button>
-<div id="meetingMessage" class="form-message"></div>
-</form>
-
-<form onsubmit="addActionItem(); return false">
-<h2>Add Action Item</h2>
-<label>Description: <input type="text" id="actionDesc" /></label>
-<label>Due Date: <input type="date" id="actionDate" /></label>
-<label>Assign To:
-<select id="actionAssignTo"></select>
-</label>
-<button type="submit">Add Action Item</button>
-<div id="actionMessage" class="form-message"></div>
-</form>
-
-
-
-</main>
-<script src="app.js"></script>
-</body>
+      <form onsubmit="addActionItem(); return false">
+        <h2>Add Action Item</h2>
+        <label>Description: <input type="text" id="actionDesc" /></label>
+        <label>Due Date: <input type="date" id="actionDate" /></label>
+        <label
+          >Assign To:
+          <select id="actionAssignTo"></select>
+        </label>
+        <button type="submit">Add Action Item</button>
+        <div id="actionMessage" class="form-message"></div>
+      </form>
+    </main>
+    <script src="app.js"></script>
+  </body>
 </html>
