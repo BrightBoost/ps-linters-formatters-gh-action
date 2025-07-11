@@ -20,7 +20,7 @@ function addPerson() {
 }
 
 function addMeeting() {
-  var title = document.getElementById('meetingTitle');
+  const title = document.getElementById('meetingTitle');
   const date = document.getElementById('meetingDate');
   meetings.push({ id: Date.now(), title: title.value, date: date.value });
   save();
